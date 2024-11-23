@@ -1,0 +1,41 @@
+#############################
+###   shared settings     ###
+#############################
+x-shared-settings: &shared-settings
+  tty: true
+  stdin_open: true
+  stop_grace_period: 1s
+  network_mode: host
+  privileged: true
+    
+
+#############################
+###   Container Startup   ###
+#############################
+services:
+  openvins-deploy:
+    build: 
+      context: .  
+      dockerfile: Dockerfile
+      target: final
+    image: pomelo925/hrc-openvins:humble
+    container_name: openvins-deploy
+
+    <<: *shared-settings
+    volumes:
+      # system
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/root/.Xauthority
+      - /dev/shm:/dev/shm
+      # source code
+      - ../../../../VI-slam-ws/build:/home/VI-slam-ws/build
+      - ../../../../VI-slam-ws/install:/home/VI-slam-ws/install
+      - ../../../../VI-slam-ws/src:/home/VI-slam-ws/src
+    devices:
+      - /dev:/dev
+
+    environment:
+      - ROS_DOMAIN_ID=22
+      - DISPLAY=${DISPLAY}
+      - COMMAND=${COMMAND}
+    command: bash -ic "${COMMAND}"
