@@ -19,6 +19,6 @@ The primary focus is on:
 
 2. Launch Docker Container.
     ```=
-    cd HRC--OpenVINS.docker
+    cd HRC-OpenVINS.docker
     ./exp.sh
     ```
