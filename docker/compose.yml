@@ -24,13 +24,13 @@ services:
     <<: *shared-settings
     volumes:
       # system
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - $HOME/.Xauthority:/root/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-uni
+      - $HOME/.Xauthority:/root/.Xauthorityx
       - /dev/shm:/dev/shm
       # source code
-      - ../../../../VI-slam-ws/build:/home/VI-slam-ws/build
-      - ../../../../VI-slam-ws/install:/home/VI-slam-ws/install
-      - ../../../../VI-slam-ws/src:/home/VI-slam-ws/src
+      - ../VI-slam-ws/build:/home/VI-slam-ws/build
+      - ../VI-slam-ws/install:/home/VI-slam-ws/install
+      - ../VI-slam-ws/src:/home/VI-slam-ws/src
     devices:
       - /dev:/dev
 
