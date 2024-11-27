@@ -38,4 +38,9 @@ services:
       - ROS_DOMAIN_ID=22
       - DISPLAY=${DISPLAY}
       - COMMAND=${COMMAND}
+    deploy:
+        resources:  
+          limits:
+            cpus: "0.1"  # 10% CPU
+            memory: 4G   # 50MB RAM
     command: bash -ic "${COMMAND}"
