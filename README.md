@@ -13,12 +13,12 @@ The primary focus is on:
 ## Usage 
 
 1. Clone this repository.
-  ```=
-  git clone https://github.com/pomelo925/HRC-OpenVINS
-  ```
+    ```=
+    git clone https://github.com/pomelo925/HRC-OpenVINS
+    ```
 
 2. Launch Docker Container.
-  ```=
-  cd HRC--OpenVINS.docker
-  ./exp.sh
-  ```
+    ```=
+    cd HRC--OpenVINS.docker
+    ./exp.sh
+    ```
